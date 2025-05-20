@@ -26,11 +26,11 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/azurre-dock:${{ github.sha }}
+        tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/hassan-docker-ci-job:${{ github.sha }}
 
     - name: Deploy to Azure Web App for Containers
       uses: azure/webapps-deploy@v3
       with:
         app-name: 'hassan-docker-ci-job'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/azurre-dock:${{ github.sha }}
+        images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/hassan-docker-ci-job:${{ github.sha }}
