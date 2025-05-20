@@ -17,6 +17,7 @@ function readCounter() {
   }
 }
 
+
 // Fonction pour sauvegarder le compteur dans le fichier
 function saveCounter(count) {
   fs.writeFileSync(counterFile, JSON.stringify({ count }), 'utf8');
