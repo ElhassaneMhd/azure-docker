@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
   saveCounter(visitCount);
   res.send(`
     <h1>Welcome to the Containerized Visit Counter App!</h1>
-    <p>Visitor count: ${visitCount} <br> Nom du serveur : ${serverName} </p>
+    <p>Visitor count: ${visitCount} <br> Nom du server : ${serverName} </p>
   `);
 });
 
