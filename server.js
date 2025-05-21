@@ -26,12 +26,59 @@ function saveCounter(count) {
 let visitCount = readCounter();
 const serverName = os.hostname();
 
+
 app.get('/', (req, res) => {
   visitCount++;
   saveCounter(visitCount);
   res.send(`
-    <h1>Welcome to the Containerized Visit Counter App!</h1>
-    <p>Visitor count: ${visitCount} <br> Nom du server : ${serverName} </p>
+    <html>
+      <head>
+        <title>Visit Counter App</title>
+        <style>
+          body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+          }
+          .container {
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            padding: 40px 60px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+          }
+          h1 {
+            color: #ffb347;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+          }
+          .info {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+          }
+          .author {
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #b2fefa;
+            letter-spacing: 1px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <h1>Welcome to the Containerized Visit Counter App!</h1>
+          <div class="info">👁️ Visitor count: <b>${visitCount}</b></div>
+          <div class="info">🖥️ Server name: <b>${serverName}</b></div>
+          <div class="author">Created by <b>Elhassane Mehdioui</b></div>
+        </div>
+      </body>
+    </html>
   `);
 });
 
